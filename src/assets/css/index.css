@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Shrikhand&family=Sniglet:wght@400;800&display=swap');
+@import "tailwindcss";
+
+/* default */
+@theme {
+	--color-yellow: #ffc05f;
+	--color-dark-yellow: #db9c3c;
+	--color-main-gray: #525252;
+	--color-gray: #a6a6a6;
+	--color-light-gray: #f6f6f6;
+	--text-sm: 10px;
+	--text-md: 14px;
+	--text-lg: 16px;
+	--text-xl: 24px;
+	--font-title: Shrikhand, "sans-serif";
+	--font-main: Sniglet, "sans-serif";
+}
+
+@layer base {
+	body {
+		font-family: "Sniglet", sans-serif;
+	}
+}
+
+/* utility */
+.debug {
+	border: 1px dashed red;
+}
