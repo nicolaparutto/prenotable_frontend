@@ -19,6 +19,7 @@
 @layer base {
 	body {
 		font-family: "Sniglet", sans-serif;
+		color: var(--color-main-gray);
 	}
 }
 
