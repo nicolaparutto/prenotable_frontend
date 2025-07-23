@@ -5,9 +5,11 @@
 @theme {
 	--color-yellow: #ffc05f;
 	--color-dark-yellow: #db9c3c;
+	--color-dark: #303030;
 	--color-main-gray: #525252;
 	--color-gray: #a6a6a6;
 	--color-light-gray: #f6f6f6;
+	--color-dark-dark: #202020;
 	--text-sm: 14px;
 	--text-md: 16px;
 	--text-lg: 18px;
@@ -22,6 +24,10 @@
 		font-family: "Sniglet", sans-serif;
 		color: var(--color-main-gray);
 	}
+}
+
+img {
+	width: 100%;
 }
 
 /* utility */

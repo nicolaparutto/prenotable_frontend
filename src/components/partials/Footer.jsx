@@ -3,8 +3,8 @@ import { Link } from "react-router-dom"
 function Footer() {
 	return (
 		<div className="bg-light-gray text-center py-5">
-			<div className="flex justify-center">
-				<Link to="/"><img className="w-[180px]" src="/images/logo.png" alt="" /></Link>
+			<div className="flex justify-center m-auto w-[140px] lg:w-[200px]">
+				<Link to="/"><img className="" src="/images/logo.png" alt="" /></Link>
 			</div>
 			<div>
 				<ul className="m-4 md:flex justify-center">

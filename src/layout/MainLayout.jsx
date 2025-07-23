@@ -5,7 +5,7 @@ import Footer from "../components/partials/Footer";
 function MainLayout() {
 	return (
 		<>
-			<header className="fixed w-full">
+			<header className="fixed w-full z-50">
 				<Header />
 			</header>
 			<main className="pt-[60px]">
