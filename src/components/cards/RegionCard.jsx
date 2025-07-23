@@ -1,6 +1,6 @@
 function RegionCard() {
 	return (
-		<div className="w-[230px] lg:w-[240px] xl:w-[250px]">
+		<div className="w-[280px] lg:w-[240px] xl:w-[250px]">
 			<div>
 				<img src="/images/placeholder.jpeg" alt="" />
 			</div>

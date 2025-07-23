@@ -1,5 +1,6 @@
 import HomeSwiper from "../components/utilities/HomeSwiper"
 import RegionCard from "../components/cards/RegionCard"
+import LocalCard from "../components/cards/LocalCard"
 
 function HomePage() {
 	return (
@@ -74,6 +75,29 @@ function HomePage() {
 				<button className="mt-2 bg-main-gray py-[6px] px-[30px] rounded-full text-white cursor-pointer md:py-[8px] md:px-[40px] hover:bg-dark-dark active:bg-dark-dark">Vedi tutte</button>
 			</section >
 			{/* 4 Section */}
+			<section className="py-[50px] text-center">
+				<h1 className="font-title text-xl md:text-xxl text-dark mb-2">ristoranti più popolari</h1>
+				<p className="text-sm md:text-md ">Scopri i 10 ristoranti meglio recensiti nella piattaforma</p>
+				<div className="flex justify-center my-3 sm:hidden">
+					<LocalCard />
+				</div>
+				<div className="hidden sm:flex justify-around my-3 lg:hidden">
+					<LocalCard />
+					<LocalCard />
+				</div>
+				<div className="hidden lg:flex justify-around my-8 xl:hidden">
+					<LocalCard />
+					<LocalCard />
+					<LocalCard />
+				</div>
+				<div className="hidden xl:flex justify-around my-8">
+					<LocalCard />
+					<LocalCard />
+					<LocalCard />
+					<LocalCard />
+				</div>
+				<button className="mt-2 bg-yellow py-[6px] px-[30px] rounded-full text-dark cursor-pointer md:py-[8px] md:px-[40px] hover:bg-dark-yellow active:bg-dark-yellow">Top 10</button>
+			</section>
 		</>
 	)
 }
