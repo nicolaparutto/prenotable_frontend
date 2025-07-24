@@ -1,8 +1,17 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+
 function Header() {
 	const [menuOpen, setMenuOpen] = useState(false);
 	const [searchOpen, setSearchOpen] = useState(false);
+	const [searchLocal, setSearchLocal] = useState();
+
+	//search by local:
+	const startSearch = (e) => {
+		e.preventDefault();
+		setSearchOpen(false);
+		console.log("Cerca il locale: ", searchLocal);
+	}
 
 	return (
 		<div className="relative bg-white">
@@ -35,7 +44,9 @@ function Header() {
 				</ul>
 			</div>
 			<div className={`bg-light-gray p-1 absolute left-0 top-full w-full shadow-md transition-all duration-300 ease-in-out ${searchOpen ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-5 pointer-events-none'}`}>
-				<input className="w-full p-3" type="text" placeholder="Cerca Ristorante..." />
+				<form onSubmit={e => startSearch(e)}>
+					<input className="w-full p-3" type="text" placeholder="Cerca Ristorante..." onChange={e => setSearchLocal(e.target.value)} />
+				</form>
 			</div>
 		</div>
 	)

@@ -1,8 +1,18 @@
+import { useState } from "react"
+
 import HomeSwiper from "../components/utilities/HomeSwiper"
 import RegionCard from "../components/cards/RegionCard"
 import LocalCard from "../components/cards/LocalCard"
 
 function HomePage() {
+	const [searchLocation, setSearchLocation] = useState("");
+	//search by localion:
+	const startSearch = (e) => {
+		e.preventDefault();
+		setSearchLocation("")
+		console.log("Cerca la regione/città: ", searchLocation);
+	}
+
 	return (
 		<>
 			{/* 1 Section */}
@@ -13,14 +23,16 @@ function HomePage() {
 					<p className="text-sm mt-1 md:text-md">Prenota il tuo tavolo direttamente da qui!</p>
 				</div>
 				<div className="p-3 inset-1 shadow-2xl w-[320px] md:w-[500px]">
-					<input className="w-full border-1 border-yellow rounded-sm p-2 md:w-[70%] md:mr-1" type="text" placeholder="Città, Regione..." />
-					<button className="mt-2 bg-yellow py-[6px] px-[30px] rounded-full text-black cursor-pointer md:py-[8px] md:px-[40px] hover:bg-dark-yellow active:bg-dark-yellow">Cerca</button>
+					<form onSubmit={e => startSearch(e)}>
+						<input className="w-full border-1 border-yellow rounded-sm p-2 md:w-[70%] md:mr-1" type="text" placeholder="Città, Regione..." value={searchLocation} onChange={e => setSearchLocation(e.target.value)} />
+						<button className="mt-2 bg-yellow py-[6px] px-[30px] rounded-full text-black cursor-pointer md:py-[8px] md:px-[40px] hover:bg-dark-yellow active:bg-dark-yellow" type="submit">Cerca</button>
+					</form>
 				</div>
-			</section>
+			</section >
 			{/* 2 Section */}
-			<section className="bg-light-gray md:hidden">
+			<section className="bg-light-gray md:hidden" >
 				<HomeSwiper />
-			</section>
+			</section >
 			<section className="py-[50px] hidden md:block bg-light-gray text-center">
 				<h4 className='text-md text-gray'>Come Funziona?</h4>
 				<h1 className='font-title text-xl md:text-xxl text-yellow'>È molto semplice!</h1>
