@@ -9,10 +9,14 @@ const GlobalProvider = ({ children }) => {
 	// [useGetLocals] HOOK:
 	const {
 		getAllLocals, allLocals,
+		getSearchedLocals, searchedLocals,
 	} = useGetLocals();
 
 	//to export:
-	const values = {};
+	const values = {
+		getAllLocals, allLocals,
+		getSearchedLocals, searchedLocals,
+	};
 	return (
 		<GlobalContext.Provider value={values}>
 			{children}

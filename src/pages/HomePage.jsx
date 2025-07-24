@@ -1,16 +1,29 @@
 import { useState } from "react"
+import { useGlobalContext } from "../contexts/GlobalContext"
 //components:
 import HomeSwiper from "../components/utilities/HomeSwiper"
 import RegionCard from "../components/cards/RegionCard"
 import LocalCard from "../components/cards/LocalCard"
 
 function HomePage() {
+	const { getSearchedLocals } = useGlobalContext();
+
 	const [searchLocation, setSearchLocation] = useState("");
+	const [alertMessage, setAlertMessage] = useState();
+
+	const params = {
+		where: searchLocation
+	}
+
 	//search by localion:
 	const startSearch = (e) => {
 		e.preventDefault();
-		setSearchLocation("")
-		console.log("Cerca la regione/città: ", searchLocation);
+		if (searchLocation.length < 4) {
+			setAlertMessage("Inserisci una città o una regione");
+			return;
+		}
+		getSearchedLocals(params);
+		setSearchLocation("");
 	}
 
 	return (
@@ -25,6 +38,7 @@ function HomePage() {
 				<div className="p-3 inset-1 shadow-2xl w-[320px] md:w-[500px]">
 					<form onSubmit={e => startSearch(e)}>
 						<input className="w-full border-1 border-yellow rounded-sm p-2 md:w-[70%] md:mr-1" type="text" placeholder="Città, Regione..." value={searchLocation} onChange={e => setSearchLocation(e.target.value)} />
+						{alertMessage ? <p className="text-red-400 text-sm mt-1">{alertMessage}</p> : ""}
 						<button className="mt-2 bg-yellow py-[6px] px-[30px] rounded-full text-black cursor-pointer md:py-[8px] md:px-[40px] hover:bg-dark-yellow active:bg-dark-yellow" type="submit">Cerca</button>
 					</form>
 				</div>

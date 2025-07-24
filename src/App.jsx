@@ -13,7 +13,7 @@ export default function App() {
         <Routes>
           <Route Component={MainLayout}>
             <Route path="/" Component={HomePage} />
-            <Route path="/search/" Component={LocalsSearchedPage} />
+            <Route path="/search?" Component={LocalsSearchedPage} />
           </Route>
         </Routes>
       </BrowserRouter>
