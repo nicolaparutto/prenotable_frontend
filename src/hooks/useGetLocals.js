@@ -40,7 +40,6 @@ const useGetLocals = () => {
 		try {
 			const response = await axios.get(completedApiUrl);
 			setSearchedLocals(response.data)
-			console.log(searchedLocals);
 		} catch (error) {
 			console.error(error)
 		}

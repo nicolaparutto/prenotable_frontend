@@ -1,29 +1,23 @@
 import { useState } from "react"
-import { useGlobalContext } from "../contexts/GlobalContext"
+import { useNavigate } from "react-router-dom"
+
 //components:
 import HomeSwiper from "../components/utilities/HomeSwiper"
 import RegionCard from "../components/cards/RegionCard"
 import LocalCard from "../components/cards/LocalCard"
 
 function HomePage() {
-	const { getSearchedLocals } = useGlobalContext();
-
 	const [searchLocation, setSearchLocation] = useState("");
 	const [alertMessage, setAlertMessage] = useState();
-
-	const params = {
-		where: searchLocation
-	}
-
+	const navigate = useNavigate();
 	//search by localion:
 	const startSearch = (e) => {
 		e.preventDefault();
 		if (searchLocation.length < 4) {
-			setAlertMessage("Inserisci una città o una regione");
-			return;
+			setAlertMessage("Inserisci una città o una regione")
+			return
 		}
-		getSearchedLocals(params);
-		setSearchLocation("");
+		navigate(`/search?where=${encodeURIComponent(searchLocation)}`)
 	}
 
 	return (
