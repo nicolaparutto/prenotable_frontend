@@ -1,6 +1,6 @@
 function LocalCard() {
 	return (
-		<div className="w-[280px] lg:w-[290px] xl:w-[300px] text-left">
+		<div className="w-[280px] sm:w-[260px] xl:w-[280px] text-left">
 			<div>
 				<img src="/images/placeholder.jpeg" alt="" />
 			</div>

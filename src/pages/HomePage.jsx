@@ -27,21 +27,21 @@ function HomePage() {
 				<div className="flex m-auto container justify-around">
 					<div className="lg:w-[300px] md:w-[250px]">
 						<div className='text-yellow text-[70px]'>
-							<i class="fa-solid fa-location-dot"></i>
+							<i className="fa-solid fa-location-dot"></i>
 						</div>
 						<h2 className='text-lg'>Scegli la regione o la città</h2>
 						<p className='text-md text-gray'>Ti mostreremo i locali e i ristoranti della zona indicata.</p>
 					</div>
 					<div className="lg:w-[300px]  md:w-[250px]">
 						<div className='text-yellow text-[70px]'>
-							<i class="fa-solid fa-utensils"></i>
+							<i className="fa-solid fa-utensils"></i>
 						</div>
 						<h2 className='text-lg'>Scegli quello che desideri</h2>
 						<p className='text-md text-gray'>Sfoglia i ristoranti, in base alle tue preferenze.</p>
 					</div>
 					<div className="lg:w-[300px]  md:w-[250px]">
 						<div className='text-yellow text-[70px]'>
-							<i class="fa-solid fa-calendar-check"></i>
+							<i className="fa-solid fa-calendar-check"></i>
 						</div>
 						<h2 className='text-lg'>Prenota il tuo tavolo</h2>
 						<p className='text-md text-gray'>Prenota direttamente qui, se è disponibile.</p>
@@ -52,25 +52,31 @@ function HomePage() {
 			<section className="py-[50px] bg-yellow text-center">
 				<h1 className="font-title text-xl md:text-xxl text-dark mb-2">Esplora per regione</h1>
 				<p className="text-sm md:text-md ">trova il ristorante che cercavi direttamente nella regione</p>
-				<div className="flex justify-center my-3 sm:hidden">
-					<RegionCard />
-				</div>
-				<div className="hidden sm:flex justify-around my-3 lg:hidden">
-					<RegionCard />
-					<RegionCard />
-				</div>
-				<div className="hidden lg:flex justify-around my-8 xl:hidden">
-					<RegionCard />
-					<RegionCard />
-					<RegionCard />
-					<RegionCard />
-				</div>
-				<div className="hidden xl:flex justify-around my-8">
-					<RegionCard />
-					<RegionCard />
-					<RegionCard />
-					<RegionCard />
-					<RegionCard />
+				<div className="flex justify-around my-5 m-auto container">
+					<div>
+						<RegionCard />
+					</div>
+					<div className="hidden sm:block">
+						<RegionCard />
+					</div>
+					<div className="hidden md:block">
+						<RegionCard />
+					</div>
+					<div className="hidden lg:block">
+						<div>
+							<RegionCard />
+						</div>
+					</div>
+					<div className="hidden lg:block">
+						<div>
+							<RegionCard />
+						</div>
+					</div>
+					<div className="hidden xl:block">
+						<div>
+							<RegionCard />
+						</div>
+					</div>
 				</div>
 				<button className="mt-2 bg-main-gray py-[6px] px-[30px] rounded-full text-white cursor-pointer md:py-[8px] md:px-[40px] hover:bg-dark-dark active:bg-dark-dark">Vedi tutte</button>
 			</section >
@@ -78,23 +84,23 @@ function HomePage() {
 			<section className="py-[50px] text-center">
 				<h1 className="font-title text-xl md:text-xxl text-dark mb-2">ristoranti più popolari</h1>
 				<p className="text-sm md:text-md ">Scopri i 10 ristoranti meglio recensiti nella piattaforma</p>
-				<div className="flex justify-center my-3 sm:hidden">
-					<LocalCard />
-				</div>
-				<div className="hidden sm:flex justify-around my-3 lg:hidden">
-					<LocalCard />
-					<LocalCard />
-				</div>
-				<div className="hidden lg:flex justify-around my-8 xl:hidden">
-					<LocalCard />
-					<LocalCard />
-					<LocalCard />
-				</div>
-				<div className="hidden xl:flex justify-around my-8">
-					<LocalCard />
-					<LocalCard />
-					<LocalCard />
-					<LocalCard />
+				<div className="flex justify-around my-5 m-auto container">
+					<div>
+						<LocalCard />
+					</div>
+					<div className="hidden sm:block">
+						<LocalCard />
+					</div>
+					<div className="hidden lg:block">
+						<div>
+							<LocalCard />
+						</div>
+					</div>
+					<div className="hidden xl:block">
+						<div>
+							<LocalCard />
+						</div>
+					</div>
 				</div>
 				<button className="mt-2 bg-yellow py-[6px] px-[30px] rounded-full text-dark cursor-pointer md:py-[8px] md:px-[40px] hover:bg-dark-yellow active:bg-dark-yellow">Top 10</button>
 			</section>

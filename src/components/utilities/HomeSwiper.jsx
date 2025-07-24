@@ -15,7 +15,7 @@ function HomeSwiper() {
 				<SwiperSlide>
 					<div className='text-center pb-10 mb-5'>
 						<div className='text-yellow text-[50px]'>
-							<i class="fa-solid fa-location-dot"></i>
+							<i className="fa-solid fa-location-dot"></i>
 						</div>
 						<h3 className='text-lg'>Scegli la regione o la città</h3>
 						<p className='text-sm text-gray'>Ti mostreremo i locali e i ristoranti della zona indicata.</p>
@@ -24,7 +24,7 @@ function HomeSwiper() {
 				<SwiperSlide>
 					<div className='text-center pb-10 mb-5'>
 						<div className='text-yellow text-[50px]'>
-							<i class="fa-solid fa-utensils"></i>
+							<i className="fa-solid fa-utensils"></i>
 						</div>
 						<h3 className='text-lg'>Scegli quello che desideri</h3>
 						<p className='text-sm text-gray'>Sfoglia i ristoranti, in base alle tue preferenze.</p>
@@ -33,7 +33,7 @@ function HomeSwiper() {
 				<SwiperSlide>
 					<div className='text-center pb-10 mb-5'>
 						<div className='text-yellow text-[50px]'>
-							<i class="fa-solid fa-calendar-check"></i>
+							<i className="fa-solid fa-calendar-check"></i>
 						</div>
 						<h3 className='text-lg'>Prenota il tuo tavolo</h3>
 						<p className='text-sm text-gray'>Prenota direttamente qui, se è disponibile.</p>
