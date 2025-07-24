@@ -1,5 +1,5 @@
 import { useState } from "react"
-
+//components:
 import HomeSwiper from "../components/utilities/HomeSwiper"
 import RegionCard from "../components/cards/RegionCard"
 import LocalCard from "../components/cards/LocalCard"

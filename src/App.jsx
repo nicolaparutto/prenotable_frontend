@@ -1,8 +1,8 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { GlobalProvider } from "./contexts/GlobalContext";
-
+//default layout:
 import MainLayout from "./layout/MainLayout";
-// pages:
+//pages:
 import HomePage from "./pages/HomePage";
 import LocalsSearchedPage from "./pages/LocalsSearchedPage";
 
