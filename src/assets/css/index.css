@@ -34,3 +34,7 @@ img {
 .debug {
 	border: 1px dashed red;
 }
+
+.pageSpacer {
+	padding: 30px 0;
+}

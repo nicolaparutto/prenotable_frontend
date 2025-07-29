@@ -5,7 +5,7 @@ import MainLayout from "./layout/MainLayout";
 //pages:
 import HomePage from "./pages/HomePage";
 import LocalsSearchedPage from "./pages/LocalsSearchedPage";
-
+import LocalDetailsPage from "./pages/LocalDetailsPage";
 export default function App() {
   return (
     <GlobalProvider>
@@ -14,6 +14,7 @@ export default function App() {
           <Route Component={MainLayout}>
             <Route path="/" Component={HomePage} />
             <Route path="/search?" Component={LocalsSearchedPage} />
+            <Route path="/local/:id" Component={LocalDetailsPage} />
           </Route>
         </Routes>
       </BrowserRouter>
