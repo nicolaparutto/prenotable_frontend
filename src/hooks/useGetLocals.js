@@ -1,9 +1,9 @@
-import { useState } from "react"
+import { useState } from "react";
 import axios from "axios";
-const apiUrl = "http://localhost:3000"
+const apiUrl = "http://localhost:3000";
 
 const useGetLocals = () => {
-	//locals STATE:
+	//STATES:
 	const [allLocals, setAllLocals] = useState([]);
 	const [searchedLocals, setSearchedLocals] = useState([]);
 

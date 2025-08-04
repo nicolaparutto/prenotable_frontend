@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom"
 
 function LocalDetailsPage() {
-
+	
 	const { id } = useParams();
 
 	return (

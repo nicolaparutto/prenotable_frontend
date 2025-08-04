@@ -1,7 +1,7 @@
 import { useSearchParams } from "react-router-dom"
 import { useEffect } from "react";
 import { useGlobalContext } from "../contexts/GlobalContext";
-
+//components:
 import LocalCard from "../components/cards/LocalCard";
 
 function LocalsSearchedPage() {
@@ -35,7 +35,6 @@ function LocalsSearchedPage() {
 						<button className="border-1 border-yellow text-yellow px-3 py-2 rounded-full mx-1"><i className="fa-solid fa-bars"></i></button>
 					</div>
 				</div>
-
 			</div>
 			<section className="bg-light-gray py-[10px] md:py-10">
 				<section className="md:flex md:container md:m-auto">

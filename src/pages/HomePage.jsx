@@ -1,16 +1,34 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
-
+import { useGlobalContext } from "../contexts/GlobalContext"
 //components:
 import HomeSwiper from "../components/utilities/HomeSwiper"
 import RegionCard from "../components/cards/RegionCard"
 import LocalCard from "../components/cards/LocalCard"
+import { use } from "react"
 
 function HomePage() {
+	// states:
 	const [searchLocation, setSearchLocation] = useState("");
 	const [alertMessage, setAlertMessage] = useState();
+	const [randomRegions, setRandomRegions] = useState([]);
+	// utilities:
 	const navigate = useNavigate();
-	//search by localion:
+	const { getRegionsList, regionsList, getAllTypologies, allTypologies } = useGlobalContext();
+
+	// [FUNCTION] for initial random regions:
+	const getRandomRegions = () => {
+		const randomRegions = [];
+		for (let i = 0; i < regionsList.length; i++) {
+			const randomIndex = Math.floor(Math.random() * regionsList.length);
+			const regionToAdd = regionsList[randomIndex];
+			if (!randomRegions.includes(regionToAdd) && randomRegions.length < 5) {
+				randomRegions.push(regionToAdd);
+			}
+		}
+		setRandomRegions(randomRegions);
+	}
+	// [FUNCTION] search by localion:
 	const startSearch = (e) => {
 		e.preventDefault();
 		if (searchLocation.length < 4) {
@@ -20,6 +38,14 @@ function HomePage() {
 		navigate(`/search?where=${encodeURIComponent(searchLocation)}`)
 	}
 
+	// useEffect:
+	useEffect(() => {
+		getRandomRegions();
+	}, [regionsList]);
+	useEffect(() => {
+		getRegionsList();
+		getAllTypologies();
+	}, []);
 	return (
 		<>
 			{/* 1 Section */}
@@ -73,30 +99,11 @@ function HomePage() {
 			<section className="py-[50px] bg-yellow text-center">
 				<h1 className="font-title text-xl md:text-xxl text-dark mb-2">Esplora per regione</h1>
 				<p className="text-sm md:text-md ">trova il ristorante che cercavi direttamente nella regione</p>
-				<div className="flex justify-around my-5 m-auto container">
-					<div>
-						<RegionCard />
-					</div>
-					<div className="hidden sm:block">
-						<RegionCard />
-					</div>
-					<div className="hidden md:block">
-						<RegionCard />
-					</div>
-					<div className="hidden lg:block">
-						<div>
-							<RegionCard />
-						</div>
-					</div>
-					<div className="hidden lg:block">
-						<div>
-							<RegionCard />
-						</div>
-					</div>
-					<div className="hidden xl:block">
-						<div>
-							<RegionCard />
-						</div>
+				<div className="flex justify-center my-5">
+					<div className="grid gap-5 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+						{randomRegions.map(region => (
+							<RegionCard key={region.region_id} regionData={region} />
+						))}
 					</div>
 				</div>
 				<button className="mt-2 bg-main-gray py-[6px] px-[30px] rounded-full text-white cursor-pointer md:py-[8px] md:px-[40px] hover:bg-dark-dark active:bg-dark-dark">Vedi tutte</button>
@@ -105,22 +112,12 @@ function HomePage() {
 			<section className="py-[50px] text-center">
 				<h1 className="font-title text-xl md:text-xxl text-dark mb-2">ristoranti più popolari</h1>
 				<p className="text-sm md:text-md ">Scopri i 10 ristoranti meglio recensiti nella piattaforma</p>
-				<div className="flex justify-around my-5 m-auto container">
-					<div>
+				<div className="flex justify-center my-5">
+					<div className="grid gap-5 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
 						<LocalCard />
-					</div>
-					<div className="hidden sm:block">
 						<LocalCard />
-					</div>
-					<div className="hidden lg:block">
-						<div>
-							<LocalCard />
-						</div>
-					</div>
-					<div className="hidden xl:block">
-						<div>
-							<LocalCard />
-						</div>
+						<LocalCard />
+						<LocalCard />
 					</div>
 				</div>
 				<button className="mt-2 bg-yellow py-[6px] px-[30px] rounded-full text-dark cursor-pointer md:py-[8px] md:px-[40px] hover:bg-dark-yellow active:bg-dark-yellow">Top 10</button>
@@ -130,3 +127,21 @@ function HomePage() {
 }
 
 export default HomePage
+
+
+
+
+/*
+Logica per stampare 6 regioni / 4 locali casuali:
+
+Al caricamento della home io ho ottenuto la lista intera delle regioni, 
+e la lista intera dei locali top 10.
+
+Faccio in modo di salvare in un nuovo array (initialRegions | initialLocalsTop) 
+6/4 elementi ad indice casuale contenuti nell'array iniziale con math random.
+
+Quindi ho due array che mi mappati stampano 6/4 card.
+
+Al click dei pulsanti vedi top10 o vedi tutte le regioni, 
+si apre un modal tutto schermo con la lista intera di regioni o locali.
+*/
